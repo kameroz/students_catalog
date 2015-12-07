@@ -17,6 +17,14 @@ group :development, :test do
   gem 'byebug'
 end
 
+group :development, :test do
+  gem 'rspec-rails', '~> 3.0'
+end
+
+%w[rspec-core rspec-expectations rspec-mocks rspec-rails rspec-support].each do |lib|
+  gem lib, :git => "git://github.com/rspec/#{lib}.git", :branch => 'master'
+end
+
 group :development do
   gem 'web-console', '~> 2.0'
 
