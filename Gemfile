@@ -17,16 +17,19 @@ group :development, :test do
   gem 'byebug'
 end
 
+
 group :development, :test do
-  gem 'rspec-rails', '~> 3.0'
+  gem 'byebug'
+   gem 'factory_girl_rails'
 end
 
-%w[rspec-core rspec-expectations rspec-mocks rspec-rails rspec-support].each do |lib|
-  gem lib, :git => "git://github.com/rspec/#{lib}.git", :branch => 'master'
+group :test do
+  gem 'capybara'
+  gem 'selenium-webdriver'
+  gem 'database_cleaner'
 end
 
 group :development do
   gem 'web-console', '~> 2.0'
-
   gem 'spring'
 end
