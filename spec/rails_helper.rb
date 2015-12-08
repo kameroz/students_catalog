@@ -28,20 +28,24 @@ require 'database_cleaner'
 ActiveRecord::Migration.maintain_test_schema!
 
 RSpec.configure do |config|
+  # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
 
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
 
- 
-  config.use_transactional_fixtures = false
-  config.infer_spec_type_from_file_location!
-  config.filter_rails_from_backtrace!
- 
- config.include Warden::Test::Helpers
 
-  config.after do
-    Warden.test_reset!
-  end
-  
+  config.use_transactional_fixtures = false
+
+  config.infer_spec_type_from_file_location!
+
+  # Filter lines from Rails gems in backtraces.
+  config.filter_rails_from_backtrace!
+
+config.include Warden::Test::Helpers
+
+config.after do
+   Warden.test_reset!
+ end
+ 
   Capybara.default_driver = :selenium
 
   config.before :suite do
@@ -60,5 +64,4 @@ RSpec.configure do |config|
   config.after :each do
     DatabaseCleaner.clean
   end
-
 end
