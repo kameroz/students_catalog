@@ -11,14 +11,21 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise'
+gem 'tzinfo-data'
 
 
 group :development, :test do
   gem 'byebug'
+  gem 'rspec-rails'
 end
 
 group :development do
   gem 'web-console', '~> 2.0'
 
   gem 'spring'
+end
+
+group :test do
+  gem 'capybara'
+  gem 'selenium-webdriver'
 end
